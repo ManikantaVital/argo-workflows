@@ -1,3 +1,4 @@
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
@@ -8,10 +9,13 @@ metadata:
     workflows.argoproj.io/description: |
       This is a simple hello world example.
 spec:
+  serviceAccountName: argo
   entrypoint: hello-world
+
   templates:
   - name: hello-world
     container:
       image: busybox
       command: [echo]
       args: ["hello world"]
+```
